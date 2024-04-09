@@ -12,9 +12,13 @@ databaseConnect();
 app.use(express.json());
 app.use(cors());
 // routes
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
+
 const port = process.env.PORT || 5050;
 app.listen(port, () => {
   console.log(`server is running on port :${port}`);
